@@ -7,6 +7,8 @@
 // @match        https://chillhop.com/user/*
 // @icon         https://www.google.com/s2/favicons?domain=chillhop.com
 // @grant        none
+// @connect      github.com
+// @updateURL    https://github.com/ryzetech/Chillhop2WS/raw/main/Chillhop2WS.user.js
 // ==/UserScript==
 
 /*
