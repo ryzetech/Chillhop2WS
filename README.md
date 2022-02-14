@@ -1,4 +1,4 @@
-# Chillhop2WS
+# Chillhop2WS | Tampermonkey + WebSocket = :red_circle: :hearts: :musical_note:
 A userscript for Tampermonkey connecting Chillhop to a local WebSocket server (+ WebSocket Server!) 🎉  
 I wrote it for OBS users wanting to display the current song playing in their chillhop.com window without any form of window capture.
 
@@ -16,6 +16,10 @@ I wrote it for OBS users wanting to display the current song playing in their ch
 
 ## ❓ How to use it
 The WebSocket server will save two files in the folder: `title.txt` and `artist.txt`. You can use OBS text sources to read from that files and show them on stream. All you have to do is to add the source and specify in the properites to read from that text file.
+
+## 💸 Does this cost me anything?
+Nope! The stuff here is absolutely free to use and to tamper with! Please be aware of the **GNU GPLv3** when doing so.  
+**Optional:** If you want to, you can link this project in a panel on Twitch or share it an another way. Thank you for everything, it helps me a lot! 💙
 
 ## ⚠ Errors? Problems? Questions?
 Open an issue [here](https://github.com/ryzetech/Chillhop2WS/issues). Try to describe your problem as accurately as possible and include screenshots if needed. If you want to improve something, make a pull request. I am open to changes! 😃
