@@ -10,8 +10,8 @@ I wrote it for OBS users wanting to display the current song playing in their ch
 ### 💻 WebSocket Server Setup
 1. (If you haven't done this already) Install [Node.js](https://nodejs.org/) **Choose the LTS option (recommended for most users)!**
 2. Download the contents of [the server folder](https://github.com/ryzetech/Chillhop2WS/tree/main/server) and put them in the same folder (the name doesn't matter, but call it `server` just to be sure 😉)
-3. Open a terminal in said folder (Windows: Right Click, "Open in Terminal") or cd into that folder
-4. Run `npm i` to set up everything you need. npm should come with your node installation!
+3. Open a terminal in said folder (Windows: Right Click, "Open in Windows Terminal" | I hope Linux and macOS users know how to operate their terminal, if not pls look it up) or cd into that folder
+4. Run `npm i` to set up everything you need. **The npm command should come with your Node installation!**
 5. Run `node server.js`. You shoud get some info if everything worked. Note that the script only works as long as you have the terminal window open!
 
 ## ❓ How to use it
@@ -22,9 +22,9 @@ Nope! The stuff here is absolutely free to use and to tamper with! 👍 Please b
 **Optional:** If you want to, you can link this project in a panel on Twitch or share it in another way. Thank you for everything, it helps me a lot! 💙
 
 ## ⚠️ Errors? Problems? Questions?
-Open an issue [here](https://github.com/ryzetech/Chillhop2WS/issues). Try to describe your problem as accurately as possible and include screenshots if needed. If you want to improve something, make a pull request. I am open to changes! 😃
+If you have questions or problems, open an issue [here](https://github.com/ryzetech/Chillhop2WS/issues). Try to describe your problem as accurately as possible and include screenshots if needed. If you want to improve something, make a pull request. I am open to changes! 😃
 
-## 🧑‍💻 For the devs
+## 👨‍💻 For the devs
 You can also run your own WebSocket server. The script tries to connect to port `4001` and sends the data as a JSON object in the following format:
 ```json
   {
@@ -33,3 +33,6 @@ You can also run your own WebSocket server. The script tries to connect to port 
   }
 ```
 When nothing is played, the script will leave both fields as empty strings.
+
+## :heart: A final note
+I've built most of the code live on [https://twitch.tv/ryzetech](https://twitch.tv/ryzetech). If you want to see more coding stuff, games and relaxed talking, you can visit and follow me there!
