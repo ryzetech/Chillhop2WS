@@ -1,14 +1,12 @@
 // ==UserScript==
 // @name         Chillhop2WebSocket
 // @namespace    http://tampermonkey.net/
-// @version      0.2
+// @version      0.3
 // @description  Takes the current song playing on chillhop.com and sends it to a local WebSocket Server
 // @author       ryzetech
 // @match        https://chillhop.com/user/*
 // @icon         https://www.google.com/s2/favicons?domain=chillhop.com
 // @grant        none
-// @connect      github.com
-// @updateURL    https://github.com/ryzetech/Chillhop2WS/raw/main/Chillhop2WS.user.js
 // ==/UserScript==
 
 /*
@@ -17,9 +15,92 @@
     This script contains just a bit gay.
 */
 
-
 (function() {
     'use strict';
+
+    // ALERT BOX THING
+
+    // insert styles
+    const styleStuff = document.createElement('style');
+    styleStuff.innerHTML = `
+/* message box */
+.msgbox {
+  padding: 20px;
+  color: white;
+  margin-bottom: 15px;
+  transition: opacity 0.5s;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.msgbox.error { background-color: #F44336; }
+.msgbox.success { background-color: #04AA6D; }
+
+/* close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* close button hover */
+.closebtn:hover {
+  color: black;
+}`;
+    document.head.appendChild(styleStuff);
+
+    // insert alertBox
+    function showAB(string, level) {
+        let col;
+        switch (level) {
+            case "error":
+            col = "#f44336";
+            break;
+
+            case "warn":
+            col = "#ff9800";
+            break;
+
+            case "success":
+            col = "#04aa6d";
+            break;
+
+            default:
+            col = "#f44336";
+        }
+
+        let alertBox = document.createElement("div");
+        alertBox.classList.add("msgbox");
+        alertBox.style.backgroundColor = col;
+
+        let alertBoxMsg = document.createElement("span");
+        alertBoxMsg.innerHTML = string;
+
+        let alertBoxClose = document.createElement("span");
+        alertBoxClose.innerHTML = "&times;";
+        alertBoxClose.classList.add("closebtn");
+        alertBoxClose.onclick = function(){
+            let div = this.parentElement;
+            div.style.opacity = "0";
+            setTimeout(function() {
+                div.style.display = "none";
+                div.style.opacity = "1";
+            }, 500);
+        }
+
+        alertBox.appendChild(alertBoxMsg);
+        alertBox.appendChild(alertBoxClose);
+
+        document.getElementsByClassName("overlay-messages")[0].appendChild(alertBox);
+    }
+
+    // note if the connection failed from the start of the script
+    let wsfailed = false;
 
     // haha sock
     let socket = new WebSocket("ws://localhost:4001/");
@@ -27,19 +108,20 @@
     // yeet yourself if you can't reach the server within one second
     setTimeout(function() {
         if (socket.readyState !== 1) {
-            alert("Connection to WebSocket Server could not be made");
+            // alert("Connection to WebSocket Server could not be made");
+            showAB("Connection to WebSocket Server could not be made", "warn");
+            wsfailed = true;
         } else {
             // if you actually made it, send a clean packet to clear the files
+            showAB("Connection established!", "success");
             socket.send(JSON.stringify({"title": "", "artist": ""}));
         }
     }, 1000);
 
     // close event (just in case)
     socket.onclose = function(event) {
-        if (event.wasClean) {
-            alert(`[CLOSE] Connection closed cleanly, code=${event.code} reason=${event.reason}`);
-        } else {
-            alert('[CLOSE] Connection died');
+        if (!event.wasClean && !wsfailed) {
+            showAB('[CLOSE] Connection died', "error");
         }
     };
 
