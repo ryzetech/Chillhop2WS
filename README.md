@@ -20,6 +20,10 @@ The WebSocket server will save two files in the folder: `title.txt` and `artist.
 ## 💸 Does this cost me anything?
 Nope! The stuff here is absolutely free to use and to tamper with! 👍 Please be aware of the **GNU GPLv3** license when doing so.  
 **Optional:** If you want to, you can link this project in a panel on Twitch or share it in another way. Thank you for everything, it helps me a lot! 💙
+  
+![Example Panel for Twitch](https://github.com/ryzetech/Chillhop2WS/raw/main/Twitch%20panel%20stuff/chillhopBanner.jpg)  
+  linking to `https://github.com/ryzetech/Chillhop2WS/`
+(just an example)
 
 ## ⚠️ Errors? Problems? Questions?
 If you have questions or problems, open an issue [here](https://github.com/ryzetech/Chillhop2WS/issues). Try to describe your problem as accurately as possible and include screenshots if needed. If you want to improve something, make a pull request. I am open to changes! 😃
