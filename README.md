@@ -18,7 +18,7 @@ I wrote it for OBS users wanting to display the current song playing in their ch
 The WebSocket server will save two files in the folder: `title.txt` and `artist.txt`. You can use OBS text sources to read from that files and show them on stream. All you have to do is to add the source and specify in the properites to read from that text file.
 
 ## 💸 Does this cost me anything?
-Nope! The stuff here is absolutely free to use and to tamper with! 👍 Please be aware of the **GNU GPLv3** when doing so.  
+Nope! The stuff here is absolutely free to use and to tamper with! 👍 Please be aware of the **GNU GPLv3** license when doing so.  
 **Optional:** If you want to, you can link this project in a panel on Twitch or share it in another way. Thank you for everything, it helps me a lot! 💙
 
 ## ⚠️ Errors? Problems? Questions?
