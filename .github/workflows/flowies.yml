@@ -14,14 +14,21 @@ jobs:
     
     steps:
       - uses: actions/checkout@v2
-      - name: Generate release tag
+      
+      - name: load zip
+        uses: montudor/action-zip@v1.0.0
+        
+      - name: make zip
+        run: zip -qq -r ./server.zip server
+      
+      - name: generate release tag
         id: tag
         run: |
-          echo "::set-output name=release_tag::UserBuild_$(date +"%Y.%m.%d_%H-%M")"
+          echo "::set-output name=release_tag::Server_$(date +"%Y.%m.%d_%H-%M")"
        
       - name: release
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ steps.tag.outputs.release_tag }}
           files: |
-            server
+            ./server.zip
