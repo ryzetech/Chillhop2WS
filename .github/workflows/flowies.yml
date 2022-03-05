@@ -1,0 +1,25 @@
+name: makezip
+
+on:
+  push:
+    branches: [ main ]
+    
+  workflow_dispatch:
+
+jobs:
+  makezip:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: load zip
+        uses: montudor/action-zip@v1.0.0
+        
+      - name: make zp
+        run: zip -qq -r ./server.zip server
+       
+      - name: upload zip
+        uses: actions/upload-artifact@v2
+        with:
+          name: server.zip
