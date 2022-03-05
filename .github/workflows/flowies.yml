@@ -15,10 +15,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
        
-      - name: release server
-        uses: "marvinpinto/action-automatic-releases@latest"
+      - name: release
+        uses: softprops/action-gh-release@v1
         with:
-          repo_token: "${{ secrets.funnytoken }}"
-          automatic_release_tag: latest
           files: |
             server
