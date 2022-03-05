@@ -19,6 +19,6 @@ jobs:
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.funnytoken }}"
-          prerelease: false
+          automatic_release_tag: latest
           files: |
             server
