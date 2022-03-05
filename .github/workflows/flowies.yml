@@ -14,15 +14,11 @@ jobs:
     
     steps:
       - uses: actions/checkout@v2
-
-      - name: load zip
-        uses: montudor/action-zip@v1.0.0
-        
-      - name: make zp
-        run: zip -qq -r ./server.zip server
        
-      - name: upload zip
-        uses: actions/upload-artifact@v3
+      - name: release server
+        uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          name: server.zip
-          path: ./server.zip
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          files: |
+            server
