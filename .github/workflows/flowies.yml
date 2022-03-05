@@ -20,6 +20,7 @@ jobs:
         run: zip -qq -r ./server.zip server
        
       - name: upload zip
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: server.zip
+          path: ./server.zip
