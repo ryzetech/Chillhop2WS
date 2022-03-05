@@ -9,7 +9,7 @@ I wrote it for OBS users wanting to display the current song playing in their ch
 
 ### 💻 WebSocket Server Setup
 1. (If you haven't done this already) Install [Node.js](https://nodejs.org/) **Choose the LTS option (recommended for most users)!**
-2. Download the contents of [the server folder](https://github.com/ryzetech/Chillhop2WS/tree/main/server) and put them in the same folder (the name doesn't matter, but call it `server` just to be sure 😉)
+2. Download the latest release of [the server](https://github.com/ryzetech/Chillhop2WS/releases), unzip the contents (the name of the folder with the files inside should be `server`, let's stick with it for the rest of the tutorial but you can rename it if you want!)
 3. Open a terminal in said folder (Windows: **Shift + Right Click**, "Open PowerShell" | I hope Linux and macOS users know how to operate their terminal, if not pls look it up) or cd into that folder
 4. Run `npm i` to set up everything you need. **The npm command should come with your Node installation!**
 5. Run `node server.js`. You shoud get some info if everything worked. Note that the script only works as long as you have the terminal window open!
